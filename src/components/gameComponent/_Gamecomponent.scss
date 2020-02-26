@@ -1,0 +1,163 @@
+.game {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .btn {
+    transform: translateY(-100%) scale(1.3);
+  }
+  &.full-window {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+  }
+  .click-place {
+    cursor: pointer;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    * {
+      pointer-events: none;
+    }
+    .game-time {
+      color: rgb(0, 214, 143);
+      font-size: 40px;
+    }
+    .click-bar {
+      box-shadow: 0 0 85px 45px #0e0e5d;
+      border-radius: 100%;
+      .progress {
+        height: 100px;
+        border-radius: 100%;
+      }
+      width: 100%;
+    }
+  }
+  .game-bg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .game-start-counter {
+      font-size: 400px;
+      animation: smallerText linear 0.9s infinite alternate;
+    }
+  }
+}
+
+.fortune-wheel {
+  background: #fff;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  position: fixed;
+  button {
+    position: absolute;
+    top: 15%;
+  }
+  .description {
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    transition: all 5s;
+    font-size: 50px;
+    opacity: 0;
+    color: #424242;
+    animation: textBlurred 5s infinite 2s ease-in;
+  }
+
+  .cube {
+    transform-origin: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    margin-left: -10%;
+    transition: all 4s ease-in-out;
+    .cube-side {
+      position: absolute;
+      border: 5px solid #000;
+      background: #424242;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      svg {
+        animation: spinBaf 5s infinite linear;
+      }
+      &:nth-child(1) {
+        transform: translate3d(0, 0, -73px);
+      }
+      &:nth-child(2) {
+        transform: translate3d(0, -73px, 0) rotateX(90deg);
+      }
+      &:nth-child(3) {
+        transform: translate3d(-73px, 0, 0) rotateY(90deg);
+      }
+      &:nth-child(4) {
+        transform: translate3d(73px, 0, 0) rotateY(90deg);
+      }
+      &:nth-child(5) {
+        transform: translate3d(0, 73px, 0) rotateX(90deg);
+      }
+      &:nth-child(6) {
+        transform: translate3d(0, 0, 73px);
+      }
+    }
+  }
+}
+
+@keyframes textBlurred {
+  from {
+    // color: transparent;
+    opacity: 1;
+    color: transparent;
+    text-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    //
+    opacity: 1;
+    color: #424242;
+  }
+}
+
+@keyframes spinBaf {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes smallerText {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(0.2);
+  }
+}

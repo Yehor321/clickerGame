@@ -1,0 +1,180 @@
+.menu {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  position: fixed;
+  top: 0;
+  .logo {
+    span {
+      font-size: 1.5em;
+    }
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      margin-left: 10px;
+      max-height: 50px;
+    }
+  }
+  .players-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .players-in-menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+.players-in-menu__item {
+  box-shadow: 5px -7px 15px 1px rgba(0, 0, 0, 0.6);
+  background: rgba(189, 82, 222, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 80px;
+  border-radius: 10px;
+  margin-right: 35px;
+  cursor: pointer;
+  position: relative;
+  &.current-player {
+    box-shadow: 5px -7px 15px 1px rgba(0, 184, 156, 1);
+  }
+  &.played-player {
+    pointer-events: none;
+    background: rgb(187, 187, 187);
+  }
+  &.died-player {
+    pointer-events: none;
+    background: rgb(187, 187, 187);
+    &:after {
+      content: "/";
+      top: 50%;
+      opacity: 0.8;
+      transform: translate(0, -50%) rotateY(180deg) rotateX(-50deg);
+      font-size: 210px;
+      position: absolute;
+    }
+  }
+  .player-icon {
+    margin: 8px 20px;
+    transform: translateX(-10px);
+  }
+  .player-name {
+    padding: 0 4px;
+    max-width: 6ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .health-number {
+    top: -5px;
+    font-size: 1.3em;
+    right: -15px;
+    position: absolute;
+
+    svg {
+      margin-left: 3px;
+    }
+  }
+  .atack-number {
+    top: 20px;
+    font-size: 1.3em;
+    right: -10px;
+    position: absolute;
+
+    svg {
+      transform: rotate(25deg);
+      margin-right: -4px;
+      margin-left: 10px;
+    }
+  }
+  .extra-info {
+    position: relative;
+    bottom: -50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #424242;
+    color: #eee;
+    span {
+      text-align: center;
+      width: 50%;
+      cursor: pointer;
+      &:hover {
+        color: #424242;
+        background: #fff;
+      }
+    }
+    .bafs,
+    .hearts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      transform: translateY(100%);
+      background: #424242;
+      padding: 10px;
+      border-radius: 0 0 5px 5px;
+      width: 100%;
+
+      span {
+        svg {
+          &:hover {
+            cursor: auto;
+          }
+        }
+        &:hover {
+          background: rgba(0, 0, 0, 0);
+          color: #fff;
+        }
+      }
+    }
+    .bafs {
+      right: 0;
+      .baf-drop {
+        svg {
+          margin-right: 6px;
+        }
+      }
+      span {
+        cursor: auto;
+        width: 100%;
+      }
+    }
+    .hearts {
+      left: 0;
+      svg {
+        margin: 3px 5px;
+        animation: heartBeating linear 2s infinite alternate;
+      }
+    }
+  }
+}
+
+@keyframes heartBeating {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
