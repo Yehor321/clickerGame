@@ -16,7 +16,7 @@ class PickHeroPage extends Component {
       players: [],
       hardLvl: 1,
       hpSystem: 0,
-      startHpCount: 1,
+      startHpCount: 3,
       circle: 1,
       validForm: false,
       currentPlayer: null,
