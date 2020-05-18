@@ -33,7 +33,7 @@ import {
   faGrinTongueWink,
   faSpider,
   faBlind,
-  faAccessibleIcon,
+  // faAccessibleIcon,
   faAmbulance,
   faAllergies,
   faRobot,
@@ -79,7 +79,7 @@ export const bafs = [
     id: 4,
     kind: "percent",
     name: "Ух ты! Профессор с людей Х согласился тебе помочь и подбросил тебя ближе к выходу на 5%",
-    icon: faAccessibleIcon
+    icon: faBlind
   },
   {
     id: 5,
